@@ -4,10 +4,19 @@ const data = [];
 let say = 25;
 let count = say;
 
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
 fetch('../data/db.json')
     .then(res => res.json())
     .then(info => {
-        data.push(...info);
+        const shuffledData = shuffleArray([...info]);
+        data.push(...shuffledData);
         show();
         handlePagination();
         initVanillaTilt();
