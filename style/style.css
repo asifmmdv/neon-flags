@@ -1,0 +1,30 @@
+.rgb::after{
+    content:"";
+    background: linear-gradient(45deg,
+    red 0%,
+    orange 10%,
+    yellow 20%,
+    rgb(15, 228, 15) 30%,
+    #3fdad8 40%,
+    #2FC9e2 50%,
+    #1c7fee 60%,
+    #5f15f2 70%,
+    #ba0c8f 80%,
+    #fb07d9 90%,
+    red 100%)
+    repeat 0% 0% / 300% 100%;
+    position: absolute;
+    inset: -3px;
+    border-radius: 16px;
+    filter:blur(8px);
+    transform:translateZ(-1px);
+    animation: rgb 3s linear infinite;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+@keyframes rgb {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
